@@ -1,0 +1,5 @@
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+my_api.configuration.application.listener.ExternalLogConfigApplicationListener,\
+my_api.configuration.application.listener.ExternalYamlConfigApplicationListener,\
+my_api.configuration.application.listener.SpringApplicationReadyApplicationListener

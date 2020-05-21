@@ -1,0 +1,30 @@
+spring:
+  jackson:
+    time-zone: GMT+8
+  jmx:
+    default-domain: MyRESTAPI
+  application:
+    name: MyRESTAPI
+  resources:
+    add-mappings: false
+  mvc:
+    throw-exception-if-no-handler-found: true
+alchemyj:
+  stop-on-user-raise-error: true
+  debug-excel-log-path: false
+  classPoolLimits:
+    EndpointGroup: 1
+  log-level: Error
+  applicationProps:
+    parameter-type-separator: -##-
+    parameter-separator: -||-
+  stop-on-formula-error: false
+  log-path: log
+  throw-on-user-raise-error: true
+  throw-on-formula-error: true
+  generate-debug-excel: false
+server:
+  connection-timeout: 3000
+  port: 8080
+  servlet:
+    context-path: /
