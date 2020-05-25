@@ -1,0 +1,67 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "my_api.configuration.AlchemyjProperties",
+      "name": "alchemyj",
+      "type": "my_api.configuration.AlchemyjProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "my_api.configuration.AlchemyjProperties",
+      "name": "alchemyj.application-props",
+      "type": "java.util.Map<java.lang.String,java.lang.String>"
+    },
+    {
+      "sourceType": "my_api.configuration.AlchemyjProperties",
+      "name": "alchemyj.class-pool-limits",
+      "type": "java.util.Map<java.lang.String,java.lang.Integer>"
+    },
+    {
+      "sourceType": "my_api.configuration.AlchemyjProperties",
+      "name": "alchemyj.debug-excel-log-path",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "my_api.configuration.AlchemyjProperties",
+      "defaultValue": false,
+      "name": "alchemyj.generate-debug-excel",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "my_api.configuration.AlchemyjProperties",
+      "name": "alchemyj.license-env-variable-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "my_api.configuration.AlchemyjProperties",
+      "name": "alchemyj.license-file-location",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "my_api.configuration.AlchemyjProperties",
+      "defaultValue": false,
+      "name": "alchemyj.stop-on-formula-error",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "my_api.configuration.AlchemyjProperties",
+      "defaultValue": false,
+      "name": "alchemyj.stop-on-user-raise-error",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "my_api.configuration.AlchemyjProperties",
+      "defaultValue": false,
+      "name": "alchemyj.throw-on-formula-error",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "my_api.configuration.AlchemyjProperties",
+      "defaultValue": false,
+      "name": "alchemyj.throw-on-user-raise-error",
+      "type": "java.lang.Boolean"
+    }
+  ]
+}

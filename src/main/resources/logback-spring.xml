@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10 seconds">
+  <contextName>logback</contextName>
+  <springProperty name="log.path" scope="context" source="alchemyj.log-path"/>
+  <springProperty name="log.level" scope="context" source="alchemyj.log-level"/>
+  <property name="CONSOLE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"/>
+  <appender class="ch.qos.logback.core.ConsoleAppender" name="LOG_STDOUT">
+    <encoder>
+      <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+      <charset>utf8</charset>
+    </encoder>
+  </appender>
+  <appender class="ch.qos.logback.core.rolling.RollingFileAppender" name="FILE_LOG">
+    <file>${log.path}/log.log</file>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${log.path}/log-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+      <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        <maxFileSize>50MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+      <maxHistory>15</maxHistory>
+    </rollingPolicy>
+    <!-- only log INFO -->
+    <!--         <filter class="ch.qos.logback.classic.filter.LevelFilter"> -->
+    <!--             <level>info</level> -->
+    <!--             <onMatch>ACCEPT</onMatch> -->
+    <!--             <onMismatch>ACCEPT</onMismatch> -->
+    <!--         </filter> -->
+  </appender>
+  <appender class="ch.qos.logback.core.rolling.RollingFileAppender" name="ERROR_FILE">
+    <file>${log.path}/log-error.log</file>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${log.path}/log-error-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+      <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        <maxFileSize>50MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+      <maxHistory>15</maxHistory>
+    </rollingPolicy>
+    <!-- only log INFO -->
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>ERROR</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+  </appender>
+  <logger additivity="true" level="INFO" name="my_api.AlchemyjSpringApplicationBootstrap"/>
+  <logger additivity="true" level="INFO" name="com.axisoft.alchemyj.kernel.checker.service"/>
+  <root level="${log.level}">
+    <appender-ref ref="LOG_STDOUT"/>
+    <appender-ref ref="FILE_LOG"/>
+    <appender-ref ref="ERROR_FILE"/>
+  </root>
+</configuration>
